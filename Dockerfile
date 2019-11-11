@@ -1,0 +1,2 @@
+FROM fedora:30
+RUN dnf update -y && dnf install -y vim nodejs git wget passwd && useradd alex && mkhomedir_helper alex && echo "export PS1=\"\[\033[38;5;51m\][\u \w]\\$ \[$(tput sgr0)\]\"" >> /home/alex/.bashrc && cd /home/alex && wget https://raw.githubusercontent.com/StackTon/.vimrc/master/.vimrc && git clone https://github.com/VundleVim/Vundle.vim.git /home/alex/.vim/bundle/Vundle.vim && chown -R alex /home/alex/.vim && mkdir projects && cd / && dnf autoremove
